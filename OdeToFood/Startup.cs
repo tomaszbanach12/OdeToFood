@@ -29,7 +29,7 @@ namespace OdeToFood
                     opts.EnableRetryOnFailure();
                 })); ;
 
-            services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
+            services.AddScoped<IRestaurantData, SqlRestaurantData>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
