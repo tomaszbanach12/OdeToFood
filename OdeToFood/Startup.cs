@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OdeToFood.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace OdeToFood
 {
@@ -27,11 +23,12 @@ namespace OdeToFood
         {
             services.AddRazorPages();
 
-            services.AddDbContextPool<OdeToFoodDbContext>(options =>
-            {
-                //TODO 
-                //options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
-            });
+            //PS C:\Projekty\OdeToFood\OdeToFood.Data> dotnet ef dbcontext info -s ..\OdeToFood\OdeToFood.csproj
+            services.AddDbContext<OdeToFoodDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"), opts =>
+                {
+                    opts.EnableRetryOnFailure();
+                })); ;
 
             services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
 
