@@ -23,7 +23,6 @@ namespace OdeToFood
         {
             services.AddRazorPages();
 
-            //PS C:\Projekty\OdeToFood\OdeToFood.Data> dotnet ef dbcontext info -s ..\OdeToFood\OdeToFood.csproj
             services.AddDbContext<OdeToFoodDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"), opts =>
                 {
