@@ -27,17 +27,23 @@
             <td>@restaurant.Location</td>
             <td>@restaurant.Cuisine</td>
             <td>
-                <a class="btn btn-lg"
+                <a class="btn btn-primary"
                    asp-page="./Detail"
                    asp-route-restaurantId="@restaurant.Id">
                     Detail
                     <!--TODO <i class="glyphicon glyphicon-zoom-in"></i>-->
                 </a>
-                <a class="btn btn-lg"
+                <a class="btn btn-primary"
                    asp-page="./Edit"
                    asp-route-restaurantId="@restaurant.Id">
                     Edit
                     <!--TODO <i class="glyphicon glyphicon-edit"></i>-->
+                </a>
+                <a class="btn btn-primary"
+                   asp-page="./Delete"
+                   asp-route-restaurantId="@restaurant.Id">
+                    Delete
+                    <!--TODO <i class="glyphicon glyphicon-trash"></i>-->
                 </a>
             </td>
         </tr>

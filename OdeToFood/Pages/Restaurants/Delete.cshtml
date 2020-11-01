@@ -1,4 +1,31 @@
-﻿@page
+﻿@page "{restaurantId}"
 @model OdeToFood.Pages.Restaurants.DeleteModel
 @{
+    // We are using global Layout from _ViewStart.cshtml
+    // Layout = null;
+    ViewData["Title"] = "Edit";
 }
+
+<!--
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Delete</title>
+</head>
+<body>
+-->
+<h2>Delete!</h2>
+<div class="alert alert-danger">
+    Are you sure you want to delete @Model.Restaurant.Name?
+</div>
+<form method="post">
+    <!--<a asp-page="List" class="btn btn-default">Cancel</a>-->
+    <a asp-page="./List" class="btn btn-primary">Cancel</a>
+    <button type="submit" class="btn btn-danger">Yes</button>
+</form>
+<!--
+</body>
+</html>
+-->
