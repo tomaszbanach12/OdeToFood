@@ -1,6 +1,7 @@
 ﻿@page
 @model OdeToFood.Pages.Restaurants.ListModel
 @{
+    ViewData["Title"] = "Restaurants";
 }
 
 <h1>Restaurants</h1>
@@ -19,6 +20,12 @@
 
 </form>
 
+@foreach (var restaurant in Model.Restaurants)
+{
+    <partial name="_Summary" model="restaurant"/>
+}
+
+<!--
 <table class="table">
     @foreach (var restaurant in Model.Restaurants)
     {
@@ -31,24 +38,26 @@
                    asp-page="./Detail"
                    asp-route-restaurantId="@restaurant.Id">
                     Detail
-                    <!--TODO <i class="glyphicon glyphicon-zoom-in"></i>-->
+                    TODO <i class="glyphicon glyphicon-zoom-in"></i>
                 </a>
                 <a class="btn btn-primary"
                    asp-page="./Edit"
                    asp-route-restaurantId="@restaurant.Id">
                     Edit
-                    <!--TODO <i class="glyphicon glyphicon-edit"></i>-->
+                    TODO <i class="glyphicon glyphicon-edit"></i>
                 </a>
                 <a class="btn btn-primary"
                    asp-page="./Delete"
                    asp-route-restaurantId="@restaurant.Id">
                     Delete
-                    <!--TODO <i class="glyphicon glyphicon-trash"></i>-->
+                    TODO <i class="glyphicon glyphicon-trash"></i>
                 </a>
             </td>
         </tr>
     }
 </table>
+-->
+
 <a asp-page=".\Edit" class="btn btn-primary">Add New</a>
 
 @section footer {
