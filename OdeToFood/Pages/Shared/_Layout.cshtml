@@ -43,8 +43,29 @@
             <vc:restaurant-count></vc:restaurant-count>
             @RenderSection("footer", required: false)
             &copy; 2020 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <br>
+            <img src="/OdeToFood.png"/>
         </div>
     </footer>
+
+    <environment include="Development">
+        <div class="container">
+            <a>
+                This runs only under Development.
+                If you wanna switch it, change variable located in: OdeToFood/Properties/ASPNETCORE_ENVIRONMENT
+            </a>
+        </div>
+            
+    </environment>
+
+    <environment exclude="Development">
+        <div class="container">
+            <a>
+                This didnt run under Development. 
+                If you wanna switch it, change variable located in: OdeToFood/Properties/ASPNETCORE_ENVIRONMENT
+            </a>
+        </div>
+    </environment>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
