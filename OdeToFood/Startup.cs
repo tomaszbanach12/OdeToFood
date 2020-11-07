@@ -22,6 +22,7 @@ namespace OdeToFood
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
 
             services.AddDbContext<OdeToFoodDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"), opts =>
@@ -30,7 +31,7 @@ namespace OdeToFood
                 })); ;
 
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
-
+            
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -63,6 +64,7 @@ namespace OdeToFood
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
