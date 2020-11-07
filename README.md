@@ -10,5 +10,5 @@ PS ~\OdeToFood\OdeToFood.Data> dotnet ef migrations add initialcreate -s ..\OdeT
 # For migrate database schema becouse you add another properties to class Restaurant etc, type in PowerShell:
 PS ~\OdeToFood\OdeToFood.Data > dotnet ef database update -s ..\OdeToFood\OdeToFood.csproj
 
-# if you have older EF Core tools version older than that of the runtime type
+# For update EF Core tools version type in PowerShell:
 PS ~\OdeToFood\OdeToFood.Data> dotnet tool update --global dotnet-ef
