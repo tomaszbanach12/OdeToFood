@@ -45,10 +45,14 @@ namespace OdeToFood
         {
             if (env.IsDevelopment())
             {
+                // In development, this middleware display exception page with detail information 
+                // about exception that comes from other middlewares in pipelane 
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+                // In production, this middleware display exception page with general error page 
+                // that was caused by other middlewares in pipelane 
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
