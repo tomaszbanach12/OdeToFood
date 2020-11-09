@@ -31,7 +31,7 @@ namespace OdeToFood
                 })); ;
 
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
-            
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -65,10 +65,22 @@ namespace OdeToFood
             app.UseStaticFiles();
             // Serve static files from the node_modules folder
             app.UseNodeModules();
+            // This is a middleware that's going to help track if the user has consented to the use of cookies
+            //app.UseCookiePolicy();
             app.UseRouting();
-
+            // This middleware is going to attempt to establish the identity of a user
             app.UseAuthorization();
-
+            // If nothing else, has served a file or done any useful work and started to return. 
+            // UseMvc middleware is going to look incoming request and then try to route that request to a Razor page 
+            // or to invoke a controller that will render a Razor View
+            //app.UseMvc();
+            // If you want to do real-time WebSocket communication
+            //app.UseSignalR();
+            // If no one else is responded and done anything in this middleware pipeline, then let me what to do in UseSpa(Configuration);
+            // (usualy render your index.html page for SPA)
+            //app.UseSpa();
+            // Allows you to speify cross-origin resource sharing headers to the browser 
+            //app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
