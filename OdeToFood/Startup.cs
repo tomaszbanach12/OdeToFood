@@ -58,6 +58,7 @@ namespace OdeToFood
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.Use(SayHelloFromMiddleware);
 
             // This is going to send HTTP redirect instruction to any browser that tries to access the application using plain HTTP
             app.UseHttpsRedirection();
@@ -81,11 +82,23 @@ namespace OdeToFood
             //app.UseSpa();
             // Allows you to speify cross-origin resource sharing headers to the browser 
             //app.UseCors();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
+        }
+
+        private RequestDelegate SayHelloFromMiddleware(RequestDelegate next)
+        {
+            return async httpContext =>
+            {
+                if (httpContext.Request.Path.StartsWithSegments("/Hello"))
+                    await httpContext.Response.WriteAsync("Hello from middleware!");
+                else
+                    await next(httpContext);
+            };
         }
     }
 }
