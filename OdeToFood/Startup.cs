@@ -51,15 +51,19 @@ namespace OdeToFood
             }
             else
             {
-                // In production, this middleware display exception page with general error page 
+                // In production, this middleware display exception page with error page without details
                 // that was caused by other middlewares in pipelane 
                 app.UseExceptionHandler("/Error");
+                // Instructs the browser to access only this information over a secure connection 
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
+            // This is going to send HTTP redirect instruction to any browser that tries to access the application using plain HTTP
             app.UseHttpsRedirection();
+            // Attempts to serve a request by responding with a file that's in the wwwroot folder
             app.UseStaticFiles();
+            // Serve static files from the node_modules folder
             app.UseNodeModules();
             app.UseRouting();
 
