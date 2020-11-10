@@ -13,6 +13,7 @@ PS ~\OdeToFood\OdeToFood.Data > dotnet ef database update -s ..\OdeToFood\OdeToF
 ### For update EF Core tools version type in PowerShell:
 PS ~\OdeToFood\OdeToFood.Data> dotnet tool update --global dotnet-ef
 
+## Publishing the application:
 ### For publish, type:
 PS ~\OdeToFood\OdeToFood> dotnet publish -o C:\temp\OdeToFood
 
