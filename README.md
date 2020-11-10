@@ -15,7 +15,11 @@ PS ~\OdeToFood\OdeToFood.Data> dotnet tool update --global dotnet-ef
 
 ## Publishing the application:
 ### For publish, type:
-PS ~\OdeToFood\OdeToFood> dotnet publish -o C:\temp\OdeToFood
+PS ~\OdeToFood\OdeToFood> dotnet publish -o ~\temp\OdeToFood
 
 ### For self contained publish which include entire runtime, type:
-PS ~\OdeToFood\OdeToFood> dotnet publish -o C:\temp\OdeToFood --self-contained -r win-x64
+PS ~\OdeToFood\OdeToFood> dotnet publish -o ~\temp\OdeToFood --self-contained -r win-x64
+
+## Run the application:
+### For run, type:
+PS ~\temp\OdeToFood> & OdeToFood.exe
