@@ -38,11 +38,20 @@ PS [PATH]\OdeToFoodPublished> & OdeToFood.exe
 
 ## For add Website in [Internet Information Services (IIS) Manager] go to:
 [Control Panel] -> [Administrative Tools] -> [Internet Information Services (IIS) Manager] -> Expand [Desktop] -> Right Click on [Sites] -> [Add Website...]
-
+[Site name]: OdeToFood
+[Physical path]: [PATH]\OdeToFoodPublished
+[Type: https]
+[IP adress]: All Unassigned
+[Port]: 443
+[SSL certificate]: IIS Express Development Certificate
+[Start Website Immediately]: Yes
+Click [OK]
 
 ## [Microsoft SQL Server Managment Studio (SSMS)] Setup
 
 Connect to server in [Microsoft SQL Server Managment Studio (SSMS)]
 Expand Server -> Expand [Security] -> Right Click on [Logins] -> [New Login...] -> [General]
+[Login name]: ISS AppPool\OdeToFood
+[Server Roles] -> 
+[Server roles] mark: [dbcreator] and [public]
 
-[server Roles] -> [Server roles] mark: [dbcreator] and [public]
