@@ -14,12 +14,35 @@ PS [PATH]\OdeToFood\OdeToFood.Data > dotnet ef database update -s ..\OdeToFood\O
 PS [PATH]\OdeToFood\OdeToFood.Data> dotnet tool update --global dotnet-ef
 
 ## Publishing the application:
-### For publish, type:
+### For publish without entire runtime, type:
 PS [PATH]\OdeToFood\OdeToFood> dotnet publish -o [PATH]\OdeToFoodPublished
 
 ### For self contained publish which include entire runtime, type:
 PS [PATH]\OdeToFood\OdeToFood> dotnet publish -o [PATH]\OdeToFoodPublished --self-contained -r win-x64
 
-## Run the application:
-### For run, type:
+## Running the application:
+### For local run, type:
 PS [PATH]\OdeToFoodPublished> & OdeToFood.exe
+
+### For IIS run:
+## [Internet Information Services (IIS) Manager] Setup
+
+## For install aspNetCoreModule: run CMD as administrator and type:
+[PATH]\System32\inetsrv appcmd.exe install module /name:AspNetCoreModule /image: [PATH]\Windows\system32\inetsrv\aspnetcore.dll
+
+## For install aspNetCoreModuleV2 run CMD as administrator and type:
+[PATH]\System32\inetsrv>appcmd.exe install module /name:AspNetCoreModuleV2 /image: [PATH]\ProgramFiles\IISExpress\Asp.NetCoreModule\V2\aspnetcorev2.dll
+
+## For show [Internet Information Services (IIS) Manager] in [Control Panel] go to:
+[Start] -> type: [Windows Features] -> mark [Internet Information Services (IIS) Manager]
+
+## For add Website in [Internet Information Services (IIS) Manager] go to:
+[Control Panel] -> [Administrative Tools] -> [Internet Information Services (IIS) Manager] -> Expand [Desktop] -> Right Click on [Sites] -> [Add Website...]
+
+
+## [Microsoft SQL Server Managment Studio (SSMS)] Setup
+
+Connect to server in [Microsoft SQL Server Managment Studio (SSMS)]
+Expand Server -> Expand [Security] -> Right Click on [Logins] -> [New Login...] -> [General]
+
+[server Roles] -> [Server roles] mark: [dbcreator] and [public]
